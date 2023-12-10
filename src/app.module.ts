@@ -19,7 +19,9 @@ import * as path from 'path';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    // Database connection
     TypeOrmModule.forRoot(databaseConfig),
+    // GraphQL module
     GraphQLModule.forRootAsync<MercuriusDriverConfig>({
       imports: [PubsubModule],
       driver: MercuriusDriver,
@@ -38,6 +40,7 @@ import * as path from 'path';
       inject: ['PUB_SUB'],
     }),
   ],
+  // Controllers and providers are injected here for dependency injection and DI to work
   controllers: [AppController],
   providers: [AppService, SampleResolver],
 })
