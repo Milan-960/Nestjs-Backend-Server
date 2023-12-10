@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
@@ -11,8 +12,9 @@ import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { PubsubModule } from './graphql/pubsub/pubsub.module';
 import { PubSub } from './graphql/pubsub/pubsub';
 
-import { SampleResolver } from './graphql/sample.resolver';
-import * as path from 'path';
+import { SeedingModule } from './database/seeding.module';
+import { UserModule } from './entities/user/user.module';
+import { UserResolver } from './graphql/user/user.resolver';
 
 @Module({
   imports: [
@@ -44,9 +46,11 @@ import * as path from 'path';
       },
       inject: ['PUB_SUB'],
     }),
+    UserModule,
+    SeedingModule,
   ],
   // Controllers and providers are injected here for dependency injection and DI to work
   controllers: [AppController],
-  providers: [AppService, SampleResolver],
+  providers: [AppService, UserResolver],
 })
 export class AppModule {}
