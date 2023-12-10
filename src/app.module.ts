@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -9,9 +11,15 @@ import { PubSub } from './graphql/pubsub/pubsub';
 
 import { SampleResolver } from './graphql/sample.resolver';
 import * as path from 'path';
+import { databaseConfig } from './config/database.config';
 
 @Module({
   imports: [
+    // Configuration settings
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRoot(databaseConfig),
     GraphQLModule.forRootAsync<MercuriusDriverConfig>({
       imports: [PubsubModule],
       driver: MercuriusDriver,

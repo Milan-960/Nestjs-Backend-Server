@@ -109,3 +109,25 @@ Access the Swagger UI for RESTful API documentation at `http://localhost:3000/ap
 ## API Endpoints
 
 Describe your GraphQL and RESTful API endpoints here.
+
+```bash
+┣ 📂src
+ ┃ ┣ 📂config                # Configuration files and services
+ ┃ ┣ 📂dtos                  # Data Transfer Objects
+ ┃ ┣ 📂entities              # Database entities
+ ┃ ┣ 📂graphql               # GraphQL related files
+ ┃ ┃ ┣ 📂pubsub              # PubSub module for subscriptions
+ ┃ ┃ ┗ 📜...                # Other GraphQL-related files
+ ┃ ┣ 📂migrations            # Database migration files
+ ┃ ┣ 📂modules               # Application modules
+ ┃ ┃ ┗ 📂sample              # Example module (can have many such modules)
+ ┃ ┣ 📜app.controller.ts     # Main application controller
+ ┃ ┣ 📜app.module.ts         # Main application module
+ ┃ ┣ 📜app.service.ts        # Main application service
+ ┃ ┗ 📜main.ts               # Entry point of the application
+ ┣ 📂test
+ ┃ ┗ 📜...                  # Test files
+ ┣ 📜.env                    # Environment variables
+ ┣ 📜...                     # Other configuration and setup files
+
+```
