@@ -1,3 +1,7 @@
+# Project Name: Nestjs-Backend-Server
+
+#### This project is a NestJS-based backend application, featuring GraphQL API endpoints and a Swagger UI for API documentation. It's deployed on Vercel and utilizes a PostgreSQL database hosted on Railway.
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -22,7 +26,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descriptionw
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -45,6 +49,13 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Run Docker Compose:
+
+```bash
+# Build a Container
+npm run start:dev
+```
+
 ## Test
 
 ```bash
@@ -58,16 +69,43 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Features
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- GraphQL API with Mercurius integration
+- Swagger UI for RESTful API documentation
+- Dockerized environment for development
+- Vercel serverless deployment
+- Railway PostgreSQL database integration
 
-## Stay in touch
+## Prerequisites
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Node.js (v16+)
+- Docker (for local development)
+- Vercel CLI (for deployment)
+- Railway account (for database)
 
-## License
+## Local Development Setup
 
-Nest is [MIT licensed](LICENSE).
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/Milan-960/Nestjs-backend.git
+   # and
+   cd Nestjs-backend
+   ```
+
+## Database Setup on Railway
+
+- Create a new PostgreSQL database on Railway.
+- Configure the environment variables in `.env` file with your Railway database credentials.
+
+## GraphQL Playground
+
+Access the GraphQL playground at `http://localhost:3000/graphql` when running locally.
+
+## Swagger UI
+
+Access the Swagger UI for RESTful API documentation at `http://localhost:3000/api`
+
+## API Endpoints
+
+Describe your GraphQL and RESTful API endpoints here.
