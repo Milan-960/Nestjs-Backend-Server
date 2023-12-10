@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
-import databaseConfig from './config/database.config';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
+import AppDataSource from './config/database.config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -20,7 +21,11 @@ import * as path from 'path';
       isGlobal: true,
     }),
     // Database connection
-    TypeOrmModule.forRoot(databaseConfig),
+    TypeOrmModule.forRootAsync({
+      useFactory: async () => ({
+        ...AppDataSource.options,
+      }),
+    }),
     // GraphQL module
     GraphQLModule.forRootAsync<MercuriusDriverConfig>({
       imports: [PubsubModule],
