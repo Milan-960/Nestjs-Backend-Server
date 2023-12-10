@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ConfigModule } from '@nestjs/config';
+import databaseConfig from './config/database.config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,6 +15,13 @@ import * as path from 'path';
 
 @Module({
   imports: [
+    // Configuration settings
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    // Database connection
+    TypeOrmModule.forRoot(databaseConfig),
+    // GraphQL module
     GraphQLModule.forRootAsync<MercuriusDriverConfig>({
       imports: [PubsubModule],
       driver: MercuriusDriver,
@@ -30,6 +40,7 @@ import * as path from 'path';
       inject: ['PUB_SUB'],
     }),
   ],
+  // Controllers and providers are injected here for dependency injection and DI to work
   controllers: [AppController],
   providers: [AppService, SampleResolver],
 })
