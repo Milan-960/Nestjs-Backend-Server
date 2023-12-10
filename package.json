@@ -45,6 +45,8 @@
     "@nestjs/swagger": "^7.1.16",
     "@nestjs/throttler": "^5.1.0",
     "@nestjs/typeorm": "^10.0.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "fastify": "^4.24.3",
     "graphql": "^16.8.1",
     "mercurius": "^13.3.1",

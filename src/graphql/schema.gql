@@ -2,7 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
 type Query {
-  hello: String!
-  hi: String!
+  users: [User!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserDto!): User!
+}
+
+input CreateUserDto {
+  name: String!
+  email: String!
 }
