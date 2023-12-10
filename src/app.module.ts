@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
+import databaseConfig from './config/database.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
@@ -11,7 +12,6 @@ import { PubSub } from './graphql/pubsub/pubsub';
 
 import { SampleResolver } from './graphql/sample.resolver';
 import * as path from 'path';
-import { databaseConfig } from './config/database.config';
 
 @Module({
   imports: [
